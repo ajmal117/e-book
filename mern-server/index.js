@@ -73,6 +73,17 @@ async function run() {
       res.send(result);
     });
 
+    // get single book data by id
+
+    app.get("/book/:id", async (req, res) => {
+      const id = req.params.id;
+      console.log(id);
+      const filter = { _id: new ObjectId(id) };
+
+      const result = await bookCollections.findOne(filter);
+      res.send(result);
+    });
+
     //find book by category -
     app.get("/all-books", async (req, res) => {
       let query = {};
@@ -81,7 +92,6 @@ async function run() {
       }
       const result = await bookCollections.find(query).toArray();
       res.send(result);
-   
     });
 
     // Send a ping to confirm a successful connection

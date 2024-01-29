@@ -52,7 +52,7 @@ function Navbar() {
               className="text-2 font-bold text-blue-700 item-center gap-2"
             >
               <FaBlog className="inline-block" />
-              Books
+              Ajmico reads
             </Link>
             {/* nav item for large device*/}
             <ul className="md:flex space-x-12 hidden">

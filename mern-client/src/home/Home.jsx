@@ -6,6 +6,7 @@ import PromoBanner from "./PromoBanner";
 import OtherBooks from "./OtherBooks";
 import Review from "./Review";
 
+
 function Home() {
   return (
     <div>
@@ -15,6 +16,7 @@ function Home() {
       <PromoBanner />
       <OtherBooks />
       <Review />
+      
     </div>
   );
 }

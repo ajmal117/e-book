@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useLoaderData, useParams } from "react-router-dom";
 import {
   Button,
   Checkbox,
@@ -10,11 +9,7 @@ import {
 } from "flowbite-react";
 import { Link } from "react-router-dom";
 
-const EditBooks = () => {
-  const { id } = useParams();
-  const { bookTitle, authorName, imageUrl, category, description, bookPdfUrl } =
-    useLoaderData();
-
+const UploadBook = () => {
   const bookCategories = [
     "Fiction",
     "Non-Fiction",
@@ -45,7 +40,7 @@ const EditBooks = () => {
   };
 
   // handle book submission
-  const handleUpdateBook = (event) => {
+  const handleSubmitBook = (event) => {
     event.preventDefault();
 
     const form = event.target;
@@ -57,7 +52,7 @@ const EditBooks = () => {
     const description = form.description.value;
     const bookPdfUrl = form.bookPdfUrl.value;
 
-    const updateBookObj = {
+    const bookObj = {
       bookTitle,
       authorName,
       imageUrl,
@@ -65,26 +60,30 @@ const EditBooks = () => {
       description,
       bookPdfUrl,
     };
-    // console.log(bookObj);
-    fetch(`http://localhost:8000/book/${id}`, {
-      method: "PATCH",
+    console.log(bookObj);
+
+    // send book data to db
+
+    fetch("http://localhost:8000/upload-book", {
+      method: "POST",
       headers: { "Content-type": "application/json" },
-      body: JSON.stringify(updateBookObj),
+      body: JSON.stringify(bookObj),
     })
       .then((res) => res.json())
       .then((data) => {
         // console.log(data)
-        alert("Book data update successfully !!!");
-        
+        alert("data send successfully !!!");
+
+        form.reset();
       });
   };
 
   return (
     <div className="px-4 my-12">
-      <h1 className="mb-8 text-3xl font-bold">Update the book data</h1>
+      <h1 className="mb-8 text-3xl font-bold">Upload A book</h1>
 
       <form
-        onSubmit={handleUpdateBook}
+        onSubmit={handleSubmitBook}
         className="flex lg:w-[1180px] flex-col flex-wrap gap-4"
       >
         {/* first row */}
@@ -98,7 +97,6 @@ const EditBooks = () => {
               name="bookTitle"
               type="text"
               placeholder="Book name"
-              defaultValue={bookTitle}
               required
               // shadow
             />
@@ -113,7 +111,6 @@ const EditBooks = () => {
               name="authorName"
               type="text"
               placeholder="Author name"
-              defaultValue={authorName}
               required
               // shadow
             />
@@ -130,7 +127,6 @@ const EditBooks = () => {
               name="imageUrl"
               type="text"
               placeholder="Book image URL"
-              defaultValue={imageUrl}
               required
               // shadow
             />
@@ -167,7 +163,6 @@ const EditBooks = () => {
             name="description"
             type="text"
             placeholder="Write your book description. . ."
-            defaultValue={description}
             className="w-full"
             required
             rows={6}
@@ -184,17 +179,16 @@ const EditBooks = () => {
             name="bookPdfUrl"
             type="text"
             placeholder="Book pdf link"
-            defaultValue={bookPdfUrl}
             required
           />
         </div>
 
         <Button type="submit" className="mt-5">
-          Update Book
+          Upload Book
         </Button>
       </form>
     </div>
   );
 };
 
-export default EditBooks;
+export default UploadBook;

@@ -7,9 +7,10 @@ import Blog from "../components/Blog";
 import SingleBook from "../shop/SingleBook";
 import DashboardLayout from "../dashboard/DashboardLayout";
 import Dashboard from "../dashboard/Dashboard";
-import UploadBook from "../dashboard/Upload";
+import UploadBook from "../dashboard/UploadBook";
 import ManageBooks from "../dashboard/ManageBooks";
 import EditBooks from "../dashboard/EditBooks";
+import SignUp from "../components/SignUp";
 
 const router = createBrowserRouter([
   {
@@ -57,6 +58,10 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path:"sign-up",
+    element:<SignUp/>
+  }
 ]);
 
 export default router;

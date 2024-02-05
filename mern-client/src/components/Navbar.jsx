@@ -1,10 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaBlog, FaBarsStaggered, FaXmark } from "react-icons/fa6";
+import { AuthContext } from "../contects/AuthProvider";
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
+
+  const { user } = useContext(AuthContext);
+  console.log(user);
 
   // toggle button
   const togaleMenu = () => {
@@ -42,7 +46,9 @@ function Navbar() {
       <header className="w-full bg-transparent fixed top-0 left-0 right-0 transition-all ease-in duration-300">
         <nav
           className={`py-4 lg:px-24 px-4 ${
-            isSticky ? "sticky transition-all ease-in duration-2000  top-0 left-0 right-0 bg-blue-300" : "transition-all ease-linear duration-2000"
+            isSticky
+              ? "sticky transition-all ease-in duration-2000  top-0 left-0 right-0 bg-blue-300"
+              : "transition-all ease-linear duration-2000"
           }`}
         >
           <div className="flex justify-between items-center text-base gap-8">

@@ -72,11 +72,13 @@ function Navbar() {
                 </Link>
               ))}
             </ul>
+
             {/* button for larger devices */}
             <div className="space-x-12 hidden lg:flex items-center">
               <button>
-                <FaBarsStaggered className="w-5 hover:text-blue-700" />
+                <FaBarsStaggered className="w-5 hover:text-blue-700 mr-1" />
               </button>
+              {user ? user.email : ""}
             </div>
 
             {/* menu button for mobile devices */}

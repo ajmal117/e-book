@@ -60,7 +60,7 @@ const UploadBook = () => {
       description,
       bookPdfUrl,
     };
-    console.log(bookObj);
+    // console.log(bookObj);
 
     // send book data to db
 

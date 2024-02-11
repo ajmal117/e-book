@@ -24,7 +24,7 @@ const ManageBooks = () => {
       });
   };
   return (
-    <div className="px-4 my-12  ">
+    <div className="px-4 my-12 ">
       <h1 className="mb-8 text-3xl font-bold">Manage Your Books</h1>
 
       {/* table for books data */}

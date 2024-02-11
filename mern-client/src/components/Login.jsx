@@ -3,35 +3,34 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../contects/AuthProvider";
 import googleLogo from "../assets/google-logo.svg";
 
-const SignUp = () => {
-  const { createUser,loginWithGoogle } = useContext(AuthContext);
-  const [error, setError] = useState("error");
+const Login = () => {
+  const { login, loginWithGoogle } = useContext(AuthContext);
+  const [error, setError] = useState("");
   const location = useLocation();
-  const nevigate = useNavigate();
+  const navigate = useNavigate();
 
   const from = location.state?.from?.pathname || "/";
 
-  const handleSubmit = (event) => {
+  const handleLogin = (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
 
-    // console.log(email, password);
-    createUser(email, password)
+    login(email, password)
       .then((userCredential) => {
-        // sign-up
+        // sign in
         const user = userCredential.user;
-        alert("sign-up successfully !");
-        nevigate(from, { replace: true });
+        alert("login successfull !");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-
         setError(errorMessage);
-        // ..
       });
+
+    // console.log(email, password);
   };
 
   // sign-up using google acount
@@ -40,12 +39,11 @@ const SignUp = () => {
       .then((result) => {
         const user = result.user;
         alert("sign-up successfully !");
-        nevigate(from, { replace: true });
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-
         setError(errorMessage);
       });
   };
@@ -66,42 +64,48 @@ const SignUp = () => {
                         alt="logo"
                       />
                       {/* <h4 className="mb-12 mt-1 pb-1 text-xl font-semibold">
-                        We are The Lotus Team
-                      </h4> */}
+                      We are The Lotus Team
+                    </h4> */}
                     </div>
 
-                    <form onSubmit={handleSubmit}>
-                    <p className="mb-4 text-xl font-bold text-center">
+                    <form onSubmit={handleLogin}>
+                      <p className="mb-4 text-xl font-bold text-center">
                         {" "}
-                        Sign Up Form{" "}
+                        Login Form{" "}
                       </p>
                       <div className="relative mb-4" data-te-input-wrapper-init>
-                      <label className="text-base">Email address</label>
+                        <label className="text-base">Email Address</label>
                         <input
                           type="text"
                           name="email"
-                          className="peer block min-h-[auto] w-full rounded border bg-transparent px-3 py-[0.32rem] leading-[1.6] shadow-[0_4px_9px_-4px_rgba(0,0,0,0.2)] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+                          className="peer block min-h-[auto] w-full rounded border bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                           id="exampleFormControlInput1"
                           placeholder="Username"
                         />
-                        
                       </div>
 
                       <div className="relative mb-4" data-te-input-wrapper-init>
-                      <label className="text-base">Password</label>
+                        <label className="text-base">Password</label>
                         <input
                           type="password"
                           name="password"
-                          className="peer block min-h-[auto] w-full rounded border bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none  shadow-[0_4px_9px_-4px_rgba(0,0,0,0.2)] transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+                          className="peer block min-h-[auto] w-full rounded border bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                           id="exampleFormControlInput11"
                           placeholder="Password"
                         />
-                       
                       </div>
-
+                      <div>
+                        {error ? (
+                          <p className="text-red-600">
+                            Email or Password is not correct :
+                          </p>
+                        ) : (
+                          ""
+                        )}
+                      </div>
                       <div className="mb-12 pb-1 pt-1 text-center">
                         <button
-                          className="mb-3 bg-blue-700 inline-block w-full rounded px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_rgba(0,0,0,0.2)] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] focus:outline-none focus:ring-0 active:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)]"
+                          className="mb-3 bg-green-700 inline-block w-full rounded px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_rgba(0,0,0,0.2)] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.3)] focus:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] focus:outline-none focus:ring-0 active:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)]"
                           type="submit"
                           data-te-ripple-init
                           data-te-ripple-color="light"
@@ -110,22 +114,20 @@ const SignUp = () => {
                           //     "linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593)",
                           // }}
                         >
-                          Sign Up
+                          Login
                         </button>
                       </div>
 
                       <div className="flex items-center justify-between pb-6">
-                        <p className="mb-0 mr-2">
-                          If you have already registered?
-                        </p>
-                        <Link to="/login">
+                        <p className="mb-0 mr-2">If you have not registered?</p>
+                        <Link to="/sign-up">
                           <button
                             type="button"
                             className="inline-block rounded border-2 border-blue-300 px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-danger transition duration-150 ease-in-out hover:border-danger-600 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-danger-600 focus:border-danger-600 focus:text-danger-600 focus:outline-none focus:ring-0 active:border-danger-700 active:text-danger-700 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10"
                             data-te-ripple-init
                             data-te-ripple-color="light"
                           >
-                            Login
+                            Sign Up
                           </button>
                         </Link>
                       </div>
@@ -168,4 +170,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default Login;

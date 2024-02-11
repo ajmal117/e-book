@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Sidebar } from "flowbite-react";
 import { BiBuoy } from "react-icons/bi";
 import {
@@ -12,12 +12,17 @@ import {
   HiViewBoards,
 } from "react-icons/hi";
 import logoImg from "../assets/profile.jpg";
+import { AuthContext } from "../contects/AuthProvider";
 
 const SideBar = () => {
+  const { user } = useContext(AuthContext);
+
+  console.log(user);
+
   return (
     <Sidebar aria-label="Sidebar with content separator example">
-      <Sidebar.Logo href="#" img={logoImg} imgAlt="Flowbite logo">
-        Ajmico reads
+      <Sidebar.Logo href="/" img={user?.photoURL} imgAlt="">
+        {user?.displayName || "Demo User"}
       </Sidebar.Logo>
       <Sidebar.Items>
         <Sidebar.ItemGroup>

@@ -49,8 +49,8 @@ function BookCards({ headline, books }) {
             <SwiperSlide key={book._id}>
               <Link to={`/book/${book._id}`}>
                 <div className="relative">
-                  <img src={book.imageUrl} alt="image" />
-                  <div className="absolute top-3 right-3 border-white border-2 bg-blue-600 hover:bg-black p-2 rounded">
+                  <img src={book.imageUrl} alt="image"  className="object-cover w-full h-96 rounded-md"/>
+                  <div className="absolute top-3  right-3 border-white border-2 bg-blue-600 hover:bg-black p-2 rounded">
                     <FaCartShopping className="w-4 h-4 text-white" />
                   </div>
                 </div>

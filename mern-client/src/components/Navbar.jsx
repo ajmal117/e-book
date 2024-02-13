@@ -106,6 +106,7 @@ function Navbar() {
                 <Link
                   key={path}
                   to={path}
+                  onClick={togaleMenu}
                   className="block text-base text-white uppercase cursor-pointer "
                 >
                   {link}

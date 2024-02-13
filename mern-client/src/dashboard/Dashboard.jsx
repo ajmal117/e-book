@@ -1,6 +1,7 @@
 import React, { PureComponent } from "react";
 import { FaRegCalendarMinus, FaEllipsisVertical } from "react-icons/fa6";
 import { Progress } from "antd";
+import err from '../assets/nodata.jpg'
 import {
   LineChart,
   Line,
@@ -9,7 +10,6 @@ import {
   CartesianGrid,
   Tooltip,
   Legend,
-  ResponsiveContainer,
 } from "recharts";
 import PiComponent from "./PiComponent";
 
@@ -198,7 +198,7 @@ const Dashboard = () => {
           <div className="pl-9 flex items-center justify-center h-[100%]">
             <div>
               <img src={err} alt="" />
-              <p className="my-4 font-semibold text-gray-400">No Data Available</p>
+              <p className="my-4 mx-10 font-semibold text-gray-400">No Data Available</p>
             </div>
           </div>
         </div>

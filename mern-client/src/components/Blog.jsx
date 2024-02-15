@@ -24,7 +24,7 @@ function Blog() {
                 alt=""
               />
               <span className="block mb-2 text-xs font-semibold text-blue-700 uppercase dark:text-blue-300">
-                ajmal ali • 6th Jun, 2022
+                ajmal ali • 12th Feb, 2024
               </span>
               <h2 className="mb-3 text-2xl font-bold leading-9 text-blue-800 dark:text-white">
                 Lorem ipsum dolor sit amet, consectetur
@@ -54,7 +54,7 @@ function Blog() {
                 alt=""
               />
               <span className="block mb-2 text-xs font-semibold text-blue-700 uppercase dark:text-blue-300">
-                waris • 6th Jun, 2022
+                waris • 6th Jan, 2024
               </span>
               <h2 className="mb-3 text-2xl font-bold leading-9 text-blue-800 dark:text-white">
                 Lorem ipsum dolor sit amet, consectetur
@@ -84,7 +84,7 @@ function Blog() {
                 alt=""
               />
               <span className="block mb-2 text-xs font-semibold text-blue-700 uppercase dark:text-blue-300">
-                Zubiya • 6th Jun, 2022
+                Zubiya • 1st Jan, 2024
               </span>
               <h2 className="mb-3 text-2xl font-bold leading-9 text-blue-800 dark:text-white">
                 Lorem ipsum dolor sit amet, consectetur

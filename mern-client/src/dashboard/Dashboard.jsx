@@ -75,7 +75,7 @@ const Dashboard = () => {
             <h2 className="text-[#B589DF] text-[11px] leading-4 font-bold">
               EARNING MONTHLY
             </h2>
-            2<h1 className=" text-xl font-bold text-[#5a5b69] mt-1">$25,000</h1>
+            <h1 className=" text-xl font-bold text-[#5a5b69] mt-1">$25,000</h1>
           </div>
           <FaRegCalendarMinus fontSize={28} color="" />
         </div>

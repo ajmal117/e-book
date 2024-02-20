@@ -6,9 +6,9 @@ This is a book inventory website in which we can sell and purchase books or we c
 
 ## Features
 
-- A attractive and user friendly UI
-- Backend and database
-- Dynamic Features
-- authentication
+- A attractive User-friendly interface for browsing and purchasing books
+- Admin panel for uploading, editing, and deleting books
+- Dynamic Features (Inventory management system)
+- Authentication system
 
 

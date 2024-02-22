@@ -97,6 +97,7 @@ async function run() {
       }
       const result = await bookCollections.find(query).toArray();
       res.send(result);
+      console.log(result);
     });
 
     // Send a ping to confirm a successful connection

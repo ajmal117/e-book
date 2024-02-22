@@ -5,13 +5,15 @@ const cors = require("cors");
 let port = process.env.PORT || 8000;
 
 // middleware
-app.use(cors(
-  cors({
-    origin: ["https://e-book-knng.vercel.app"],
-    methods: ["POST", "GET", "PATCH", "DELETE"],
-    credentials: true,
-  })
-));
+app.use(
+  cors(
+    cors({
+      origin: ["https://e-book-knng.vercel.app"],
+      methods: ["POST", "PATCH", "DELETE", "GET"],
+      credentials: true,
+    })
+  )
+);
 
 app.use(express.json());
 

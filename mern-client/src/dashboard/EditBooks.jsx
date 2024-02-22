@@ -66,7 +66,7 @@ const EditBooks = () => {
       bookPdfUrl,
     };
     // console.log(bookObj);
-    fetch(`http://localhost:8000/book/${id}`, {
+    fetch(`https://e-book-pied.vercel.app/book/${id}`, {
       method: "PATCH",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify(updateBookObj),

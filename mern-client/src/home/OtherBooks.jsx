@@ -5,7 +5,7 @@ const OtherBooks = () => {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8000/all-books")
+    fetch("https://e-book-pied.vercel.app/all-books")
       .then((res) => res.json())
       .then((data) => setBooks(data.slice(4, 10)))
       .catch((err) => console.log(err));

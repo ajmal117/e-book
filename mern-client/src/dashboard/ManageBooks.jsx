@@ -6,7 +6,7 @@ const ManageBooks = () => {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8000/all-books")
+    fetch("https://e-book-pied.vercel.app/all-books")
       .then((res) => res.json())
       .then((data) => setBooks(data));
   }, []);
@@ -14,7 +14,7 @@ const ManageBooks = () => {
   // handle delete
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:8000/book/${id}`, {
+    fetch(`https://e-book-pied.vercel.app/book/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

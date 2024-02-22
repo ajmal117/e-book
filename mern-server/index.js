@@ -7,7 +7,7 @@ let port = process.env.PORT || 8000;
 // middleware
 app.use(cors(
   cors({
-    origin: ["https://form-crud-db-front.vercel.app"],
+    origin: ["https://e-book-knng.vercel.app"],
     methods: ["POST", "GET", "PATCH", "DELETE"],
     credentials: true,
   })

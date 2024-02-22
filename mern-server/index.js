@@ -5,7 +5,14 @@ const cors = require("cors");
 let port = process.env.PORT || 8000;
 
 // middleware
-app.use(cors());
+app.use(cors(
+  cors({
+    origin: ["https://form-crud-db-front.vercel.app"],
+    methods: ["POST", "GET", "PATCH", "DELETE"],
+    credentials: true,
+  })
+));
+
 app.use(express.json());
 
 //mongodb configuration
@@ -14,7 +21,7 @@ const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 // const uri = "mongodb://127.0.0.1:27017/BookInventory";
 
 const uri =
-  "mongodb+srv://user:user123@cluster0.lkshd4d.mongodb.net/?retryWrites=true&w=majority";
+  "mongodb+srv://user:user123@cluster0.lkshd4d.mongodb.net/BookInventory?retryWrites=true&w=majority";
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {

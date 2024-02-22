@@ -3,22 +3,31 @@ import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
 
 function SingleBook() {
-  const { _id, bookTitle, imageUrl, description, authorName, category } =
+  const { _id, bookTitle, imageUrl, description, authorName, category,bookPdfUrl } =
     useLoaderData();
 
+  // const history = useNavigate();
+
+  const handleLink = () => {
+    window.location.assign(`${bookPdfUrl}`) 
+  };
+
   return (
-    <div className="flex flex-col lg:flex-row mt-36 p-4 lg:px-24 border border-gray-200 rounded-lg shadow">
+    <div className="flex flex-col lg:flex-row mt-36 p-4 gap-5 lg:px-24 border border-gray-200 rounded-lg shadow">
       <div className="lg:w-2/3 bg-white flex flex-col justify-center items-center">
         <Link to="" className="">
           <img
-            className="rounded-lg w-full h-96"
+            className="rounded-lg w-full h-96 "
             src={imageUrl}
             alt="book image"
           />
         </Link>
 
         <div className="">
-          <button className="border text-base font-medium border-gray-400 shadow-md mt-2 p-1 rounded-md hover:cursor-pointer hover:bg-slate-300">
+          <button
+            onClick={handleLink}
+            className="border text-base font-medium border-gray-400 shadow-md mt-2 p-1 rounded-md hover:cursor-pointer hover:bg-slate-300"
+          >
             Link of PDF
           </button>
           <h5 className="text-xl font-semibold tracking-tight text-gray-900">
@@ -92,13 +101,13 @@ function SingleBook() {
             {description}
           </p>
         </div>
-        <div className="flex items-center justify-between w-96">
+        <div className="flex items-center justify-between w-72 md:w-96">
           <span className="text-3xl font-bold text-gray-900 dark:text-white">
             $13
           </span>
           <Link
             to="#"
-            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-2 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           >
             Add to cart
           </Link>

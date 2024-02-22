@@ -1,9 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import ajmalPic from '../assets/ajmal.png'
+import ajmalPic from "../assets/ajmal.png";
 
 function About() {
+  // const [data, setData] = useState("");
+  // const [allData, setAllData] = useState([]);
+
+  // const submit = () => {
+  //   setAllData([...allData, data]);
+  //   console.log(allData);
+  // };
+
   return (
+    // <div className="mt-32">
+    //   <input type="text" onChange={(e) => setData(e.target.value)} />
+    //   <button className="" onClick={submit}>
+    //     submit
+    //   </button>
+    //   {allData.map((item, index) => (
+    //     <li key={index}>{item}</li>
+    //   ))}
+    // </div>
     <div className="">
       <section className=" mt-24 px-4 lg:px-24 flex items-center bg-stone-100 xl:h-screen font-poppins dark:bg-gray-800 ">
         <div className="justify-center flex-1 max-w-6xl py-4 mx-auto lg:py-6 md:px-6">

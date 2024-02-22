@@ -11,6 +11,9 @@ function App() {
         <Outlet />
       </div>
       <MyFooter />
+      <div>
+      
+      </div>
     </>
   );
 }

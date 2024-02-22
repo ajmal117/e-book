@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Card } from "flowbite-react";
+import { Link } from "react-router-dom";
 
 function Shop() {
   const [books, setBooks] = useState([]);
@@ -23,7 +24,13 @@ function Shop() {
               Here are the biggest enterprise technology acquisitions of 2021 so
               far, in reverse chronological order.
             </p>
-            <button className="bg-blue-700 text-white font-semibold py-2 rounded">Buy Now</button>
+            <Link
+              to={`/book/${book._id}`}
+              className="bg-blue-700 text-white font-semibold py-2 rounded text-center"
+            >
+              Buy Now
+              {/* <button></button> */}
+            </Link>
           </Card>
         ))}
       </div>

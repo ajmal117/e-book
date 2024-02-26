@@ -48,11 +48,11 @@ async function run() {
       res.send(result);
     });
 
-    // app.get("/all-books", async (req, res) => {
-    //   const books = bookCollections.find();
-    //   const result = await books.toArray();
-    //   res.send(result);
-    // });
+    app.get("/all-books", async (req, res) => {
+      const books = bookCollections.find();
+      const result = await books.toArray();
+      res.send(result);
+    });
 
     // update book by patch method(does not send whole body to update)
     app.patch("/book/:id", async (req, res) => {
@@ -90,15 +90,14 @@ async function run() {
     });
 
     //find book by category -
-    app.get("/all-books", async (req, res) => {
-      let query = {};
-      if (req.query?.category) {
-        query = { category: req.query.category };
-      }
-      const result = await bookCollections.find(query).toArray();
-      res.send(result);
-      console.log(result);
-    });
+    // app.get("/all-books", async (req, res) => {
+    //   let query = {};
+    //   if (req.query?.category) {
+    //     query = { category: req.query.category };
+    //   }
+    //   const result = await bookCollections.find(query).toArray();
+    //   res.send(result);
+    // });
 
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });

@@ -15,7 +15,7 @@ import { EffectCards } from "swiper/modules";
 
 function BannerCard() {
   return (
-    <div className="banner">
+    <div className="banner" >
       <Swiper
         effect={"cards"}
         grabCursor={true}

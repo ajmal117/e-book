@@ -8,9 +8,8 @@ import { getAnalytics } from "firebase/analytics";
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyDGINOwJlKuhrsLiDPzcdIOl14VEt3Evs4",
-  // authDomain: "mern-book-inventory-f7ecf.firebaseapp.com",
-  authDomain: "https://e-book-knng.vercel.app",
-
+  authDomain: "mern-book-inventory-f7ecf.firebaseapp.com",
+  // authDomain: "https://e-book-knng.vercel.app",
   projectId: "mern-book-inventory-f7ecf",
   storageBucket: "mern-book-inventory-f7ecf.appspot.com",
   messagingSenderId: "53135275793",

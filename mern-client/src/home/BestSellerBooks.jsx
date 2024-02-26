@@ -11,6 +11,7 @@ function BestSellerBooks() {
       .catch((err) => console.log(err));
   }, []);
 
+  console.log(books)
   return (
     <>
       <BookCards books={books} headline="Best Seller Books" />

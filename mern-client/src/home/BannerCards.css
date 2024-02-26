@@ -14,10 +14,10 @@
 }
 
 .banner .swiper-slide:nth-child(1n) {
-  background-image: url("src/assets/banner-books/book1.png");
+  background-image: url("/mern-client/src/assets/banner-books/book1.png");
 }
 
-.banner .swiper-slide:nth-child(2n) {
+/* .banner .swiper-slide:nth-child(2n) {
   background-image: url("src/assets/banner-books/book2.png");
 }
 
@@ -31,4 +31,4 @@
 
 .banner .swiper-slide:nth-child(5n) {
   background-image: url("src/assets/banner-books/book5.png");
-}
+} */

@@ -14,7 +14,7 @@
 }
 
 .banner .swiper-slide:nth-child(1n) {
-  background-image: url("/mern-client/src/assets/banner-books/book1.png");
+  background-image: url("/src/assets/banner-books/book1.png");
 }
 
 /* .banner .swiper-slide:nth-child(2n) {

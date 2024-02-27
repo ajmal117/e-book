@@ -32,6 +32,8 @@ const client = new MongoClient(uri, {
   },
 });
 
+console.log(client);
+
 async function run() {
   try {
     // Connect the client to the server	(optional starting in v4.7)
@@ -86,18 +88,18 @@ async function run() {
       // console.log(id);
       const filter = { _id: new ObjectId(id) };
       const result = await bookCollections.findOne(filter);
-      res.send(result);
+      res.json(result).status(200);
     });
 
     //find book by category -
-    // app.get("/all-books", async (req, res) => {
-    //   let query = {};
-    //   if (req.query?.category) {
-    //     query = { category: req.query.category };
-    //   }
-    //   const result = await bookCollections.find(query).toArray();
-    //   res.send(result);
-    // });
+    app.get("/all-books", async (req, res) => {
+      let query = {};
+      if (req.query?.category) {
+        query = { category: req.query.category };
+      }
+      const result = await bookCollections.find(query).toArray();
+      res.send(result);
+    });
 
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });

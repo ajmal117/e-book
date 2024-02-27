@@ -4,10 +4,10 @@ const cors = require("cors");
 
 let port = process.env.PORT || 8000;
 
-// middleware
+// middlewares
 app.use(
   cors({
-    origin: ["https://e-book-knng.vercel.app"],
+    port: ["https://e-book-knng.vercel.app"],
     methods: ["GET","POST", "PATCH", "DELETE"],
     credentials: true,
   })

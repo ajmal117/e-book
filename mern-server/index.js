@@ -7,8 +7,8 @@ let port = process.env.PORT || 8000;
 // middlewares
 app.use(
   cors({
-    port: ["https://e-book-knng.vercel.app"],
-    methods: ["GET","POST", "PATCH", "DELETE"],
+    origin: ["https://e-book-knng.vercel.app"],
+    methods: ["GET", "POST", "PATCH", "DELETE"],
     credentials: true,
   })
 );

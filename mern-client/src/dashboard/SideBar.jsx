@@ -11,7 +11,7 @@ import {
   HiUser,
   HiViewBoards,
 } from "react-icons/hi";
-import logoImg from "../assets/profile.jpg";
+// import logoImg from "../assets/profile.jpg";
 import { AuthContext } from "../contects/AuthProvider";
 
 const SideBar = () => {

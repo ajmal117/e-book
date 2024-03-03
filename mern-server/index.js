@@ -51,11 +51,11 @@ async function run() {
       res.send(result);
     });
 
-    app.get("/all-books", async (req, res) => {
-      const books = bookCollections.find();
-      const result = await books.toArray();
-      res.send(result);
-    });
+    // app.get("/all-books", async (req, res) => {
+    //   const books = bookCollections.find();
+    //   const result = await books.toArray();
+    //   res.send(result);
+    // });
 
     // update book by patch method(does not send whole body to update)
     app.patch("/book/:id", async (req, res) => {

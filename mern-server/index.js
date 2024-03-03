@@ -72,7 +72,6 @@ async function run() {
       };
       // update
       const result = await bookCollections.updateOne(filter, updateDoc, option);
-      // res.json(result).status(200);
       res.send(result)
     });
 
@@ -81,7 +80,6 @@ async function run() {
       // console.log(id)
       const filter = { _id: new ObjectId(id) };
       const result = await bookCollections.deleteOne(filter);
-      // res.json(result).status(200);
       res.send(result)
     });
 
@@ -92,7 +90,7 @@ async function run() {
       const filter = { _id: new ObjectId(id) };
       const result = await bookCollections.findOne(filter);
       res.send(result)
-      // res.json(result).status(200);
+
     });
 
     //find book by category -
@@ -102,8 +100,8 @@ async function run() {
         query = { category: req.query.category };
       }
       const result = await bookCollections.find(query).toArray();
-      // res.json(result).status(200);
-      res.send(result)
+      res.json(result).status(200);
+      // res.send(result)
     });
 
     // Send a ping to confirm a successful connection

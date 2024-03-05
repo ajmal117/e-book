@@ -54,8 +54,8 @@ async function run() {
     app.get("/all-books", async (req, res) => {
       const books = bookCollections.find();
       const result = await books.toArray();
-      res.json(result).status(200)
-      // res.send(result);
+      // res.json(result).status(200)
+      res.send(result);
     });
 
     // update book by patch method(does not send whole body to update)

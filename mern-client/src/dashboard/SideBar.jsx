@@ -13,6 +13,7 @@ import {
 } from "react-icons/hi";
 // import logoImg from "../assets/profile.jpg";
 import { AuthContext } from "../contects/AuthProvider";
+import { Link } from "react-router-dom";
 
 const SideBar = () => {
   const { user } = useContext(AuthContext);
@@ -45,10 +46,10 @@ const SideBar = () => {
             Products
           </Sidebar.Item>
           <Sidebar.Item href="/login" icon={HiArrowSmRight}>
-            Sign In
+            <Link>Sign In</Link>
           </Sidebar.Item>
-          <Sidebar.Item href="/logout" icon={HiTable}>
-            Log Out
+          <Sidebar.Item icon={HiTable}>
+            <Link to="  /Log Out  "> Log Out </Link>
           </Sidebar.Item>
         </Sidebar.ItemGroup>
         <Sidebar.ItemGroup>

@@ -100,8 +100,8 @@ async function run() {
         query = { category: req.query.category };
       }
       const result = await bookCollections.find(query).toArray();
-      res.json(result).status(200);
-      // res.send(result)
+      // res.json(result).status(200);
+      res.send(result)
     });
 
     // Send a ping to confirm a successful connection

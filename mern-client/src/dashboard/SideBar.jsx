@@ -49,7 +49,7 @@ const SideBar = () => {
             <Link>Sign In</Link>
           </Sidebar.Item>
           <Sidebar.Item icon={HiTable}>
-            <Link to="  /Log Out  "> Log Out </Link>
+            <Link to="/Logout"> Log Out </Link>
           </Sidebar.Item>
         </Sidebar.ItemGroup>
         <Sidebar.ItemGroup>

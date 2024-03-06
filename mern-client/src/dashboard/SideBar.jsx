@@ -27,8 +27,8 @@ const SideBar = () => {
       </Sidebar.Logo>
       <Sidebar.Items>
         <Sidebar.ItemGroup>
-          <Sidebar.Item href="/admin/dashboard" icon={HiChartPie}>
-            Dashboard
+          <Sidebar.Item icon={HiChartPie}>
+            <Link to="/admin/dashboard">Dashboard</Link>
           </Sidebar.Item>
           <Sidebar.Item icon={HiOutlineCloudUpload}>
             <Link to="/admin/dashboard/upload">Upload Books</Link>

@@ -22,8 +22,8 @@ const SideBar = () => {
 
   return (
     <Sidebar aria-label="Sidebar with content separator example">
-      <Sidebar.Logo href="/" img={user?.photoURL} imgAlt="">
-        {user?.displayName || "Demo User"}
+      <Sidebar.Logo img={user?.photoURL} imgAlt="">
+        <Link to="/">{user?.displayName || "Demo User"}</Link>
       </Sidebar.Logo>
       <Sidebar.Items>
         <Sidebar.ItemGroup>

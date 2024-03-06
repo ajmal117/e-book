@@ -30,14 +30,11 @@ const SideBar = () => {
           <Sidebar.Item href="/admin/dashboard" icon={HiChartPie}>
             Dashboard
           </Sidebar.Item>
-          <Sidebar.Item
-            href="/admin/dashboard/upload"
-            icon={HiOutlineCloudUpload}
-          >
-            Upload Books
+          <Sidebar.Item icon={HiOutlineCloudUpload}>
+            <Link to="/admin/dashboard/upload">Upload Books</Link>
           </Sidebar.Item>
-          <Sidebar.Item href="/admin/dashboard/manage" icon={HiInbox}>
-            Manage Books
+          <Sidebar.Item icon={HiInbox}>
+            <Link to="/admin/dashboard/manage">Manage Books</Link>
           </Sidebar.Item>
           <Sidebar.Item href="#" icon={HiUser}>
             Users
@@ -45,8 +42,8 @@ const SideBar = () => {
           <Sidebar.Item href="#" icon={HiShoppingBag}>
             Products
           </Sidebar.Item>
-          <Sidebar.Item href="/login" icon={HiArrowSmRight}>
-            <Link>Sign In</Link>
+          <Sidebar.Item icon={HiArrowSmRight}>
+            <Link to="/login">Sign In</Link>
           </Sidebar.Item>
           <Sidebar.Item icon={HiTable}>
             <Link to="/Logout"> Log Out </Link>

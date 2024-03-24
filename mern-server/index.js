@@ -33,7 +33,7 @@ const client = new MongoClient(uri, {
   },
 });
 
-console.log(client);
+// console.log(client);
 
 async function run() {
   try {
@@ -50,13 +50,14 @@ async function run() {
       const result = await bookCollections.insertOne(data);
       res.send(result);
     });
-
-    app.get("/all-books", async (req, res) => {
-      const books = bookCollections.find();
-      const result = await books.toArray();
-      // res.json(result).status(200)
-      res.send(result);
-    });
+    
+    // app.get("/all-books", async (req, res) => {
+    //   const books = bookCollections.find();
+    //   const result = await books.toArray();
+    //   // res.json(result).status(200)
+    //   res.send(result);
+    //   console.log(result);
+    // });
 
     // update book by patch method(does not send whole body to update)
     app.patch("/book/:id", async (req, res) => {
@@ -73,7 +74,7 @@ async function run() {
       };
       // update
       const result = await bookCollections.updateOne(filter, updateDoc, option);
-      res.send(result)
+      res.send(result);
     });
 
     app.delete("/book/:id", async (req, res) => {
@@ -81,7 +82,7 @@ async function run() {
       // console.log(id)
       const filter = { _id: new ObjectId(id) };
       const result = await bookCollections.deleteOne(filter);
-      res.send(result)
+      res.send(result);
     });
 
     // get single book data by id
@@ -90,20 +91,19 @@ async function run() {
       // console.log(id);
       const filter = { _id: new ObjectId(id) };
       const result = await bookCollections.findOne(filter);
-      res.send(result)
-
+      res.send(result);
     });
 
     //find book by category -
-    // app.get("/all-books", async (req, res) => {
-    //   let query = {};
-    //   if (req.query?.category) {
-    //     query = { category: req.query.category };
-    //   }
-    //   const result = await bookCollections.find(query).toArray();
-    //   // res.json(result).status(200);
-    //   res.send(result)
-    // });
+    app.get("/all-books", async (req, res) => {
+      let query = {};
+      if (req.query?.category) {
+        query = { category: req.query.category };
+      }
+      const result = await bookCollections.find(query).toArray();
+      // res.json(result).status(200);
+      res.send(result)
+    });
 
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });

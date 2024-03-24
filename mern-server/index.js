@@ -22,7 +22,7 @@ const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 // const uri = "mongodb://127.0.0.1:27017/BookInventory";
 
 const uri =
-  "mongodb+srv://user:user123@cluster0.lkshd4d.mongodb.net/BookInventory?retryWrites=true&w=majority&appName=Cluster0";
+  "mongodb+srv://newuse:newuse123@cluster0.lkshd4d.mongodb.net/BookInventory?retryWrites=true&w=majority&appName=Cluster0";
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
@@ -51,13 +51,13 @@ async function run() {
       res.send(result);
     });
     
-    // app.get("/all-books", async (req, res) => {
-    //   const books = bookCollections.find();
-    //   const result = await books.toArray();
-    //   // res.json(result).status(200)
-    //   res.send(result);
-    //   console.log(result);
-    // });
+    app.get("/all-books", async (req, res) => {
+      const books = bookCollections.find();
+      const result = await books.toArray();
+      // res.json(result).status(200)
+      res.send(result);
+      console.log(result);
+    });
 
     // update book by patch method(does not send whole body to update)
     app.patch("/book/:id", async (req, res) => {
